@@ -17,22 +17,23 @@ app.post('/ussd', (req, res) => {
         text,
     } = req.body;
 
+
     let response = '';
 
     if (text == '') {
         // This is the first request. Note how we start the response with CON
-        response = `Maji Ripoti
+        response = `CON Maji Ripoti
         1. Ripoti kupasuka kwa bomba
         2. Pata taarifa za wiki kuhusu maji`;
 
     } else if ( text == '1') {
         // Business logic for first level response
-        response = `Ingiza eneo uliopo`;
+        response = `CON Ingiza eneo uliopo`;
 
     } else if ( text == '2') {
         // Business logic for first level response
         // This is a terminal request. Note how we start the response with END
-        const taarifa = "Mradi wa maji, wilaya ya tabora kuaza kesho";
+        const taarifa = "CON Mradi wa maji, wilaya ya tabora kuaza kesho";
         response = `END Taarifa ya wiki hii ni ${taarifa}`;
     } else if ( text !== '' || text !== '1' || text !== '2') {
         // This is a second level response where the user selected 1 in the first instance
