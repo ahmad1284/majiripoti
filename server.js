@@ -1,5 +1,8 @@
+const dotenv = require('dotenv');
 const express = require('express');
 const bodyParser = require('body-parser');
+
+dotenv.config()
 
 const app = express();
 app.use(bodyParser.json());
@@ -42,6 +45,8 @@ app.post('/ussd', (req, res) => {
     res.send(response);
 });
 
-app.listen(3000, function () {
-    console.log('Server is listening on port 3000. Ready to accept requests!');
+const port = process.env.PORT || 3000;
+
+app.listen(port, function () {
+    console.log(`Server is listening on port ${port}. Ready to accept requests!`);
   });
