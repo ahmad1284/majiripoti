@@ -33,7 +33,7 @@ app.post('/ussd', (req, res) => {
     } else if ( text == '2') {
         // Business logic for first level response
         // This is a terminal request. Note how we start the response with END
-        const taarifa = "CON Mradi wa maji, wilaya ya tabora kuaza kesho";
+        const taarifa = "Mradi wa maji, wilaya ya tabora kuaza kesho";
         response = `END Taarifa ya wiki hii ni ${taarifa}`;
     } else if ( text !== '' || text !== '1' || text !== '2') {
         // This is a second level response where the user selected 1 in the first instance
